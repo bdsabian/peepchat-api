@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create databse peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: Bxysqcws6KGKWxidU2XzXOBgspxl9VxG9xvkT/o/OcSBkA0wlKr0tPw78V5pcog7jxFevw5NrcTjMWBjq6fdtrSjLjodGf4n74xg4NsLIUPi9WXfIBwoNaBbsAvzYr+3EgGCbwjZcKVtjUyX5XFTJo0DlagCAFSW/1dddQQFTVxFj3Yv+ypHyUd+MDYTska/tM4zeXdQHwhee6NKOWDOJsug0hENxvUaznwZRGCS9iJSA96uMzQOfPQcHj/74UThFQSqqGZ76U/vPvS+XuVUdrVODnX+ZAMp46AQge1NvdJoJgbr1oifQQhuCO7x9vWT4UfQTlHrR5tdJx67oL12G9y6L5Vt1Ka89hfNLycQey+I4G7x6+/SS9wevrpI6VoL+jxAc2ZHkbjGh196IWAsvm0tOC7HEeFXNw5tVESa6s52XWUvbZ7oecImNxOqi1JhYJVago2BEow83NOsqM3a5tDtU3Q+oKOIQgoKcgqFAS4bJ9fAGahCNq3V/zfvw8350chkdykrVAXhjHh9mwdgKB6S1W+isCLhhQfW85quoy71PNcTvD9vvdP3guMl3HgMR3o+0x9RgR/WxGW7cY0CE2M1me20PrGqnHp8bm89yTkim33Xl5q95Hz9quWb+Ry/zeE/+jxjoZpscLqCZGO4CmwFKizC6ZXtr5xvWuLZGUU=
+  app: secret-island-53152
+  on:
+    repo: bdsabian/peepchat-api
